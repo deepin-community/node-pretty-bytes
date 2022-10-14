@@ -1,0 +1,25 @@
+Source: node-pretty-bytes
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Abhishek Kuvalekar <abhi.kuvalekar@yahoo.com>
+Section: javascript
+Testsuite: autopkgtest-pkg-nodejs
+Priority: optional
+Build-Depends: debhelper-compat (= 13)
+ , node-tape <!nocheck>
+ , dh-sequence-nodejs
+Standards-Version: 4.5.1
+Vcs-Browser: https://salsa.debian.org/js-team/node-pretty-bytes
+Vcs-Git: https://salsa.debian.org/js-team/node-pretty-bytes.git
+Homepage: https://github.com/sindresorhus/pretty-bytes#readme
+Rules-Requires-Root: no
+
+Package: node-pretty-bytes
+Architecture: all
+Depends: ${misc:Depends}
+Multi-Arch: foreign
+Description: Convert bytes to a human readable string
+ It is useful in displaying file size to humans.
+ It uses base-10(kilobyte and not kibibyte) and support values
+ from B(byte) to YB (yottabyte).
+ .
+ Node.js is an event-based server-side JavaScript engine.

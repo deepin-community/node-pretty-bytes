@@ -1,0 +1,76 @@
+Description: Switch test from ava to tape
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-12-26
+
+--- a/test.js
++++ b/test.js
+@@ -1,5 +1,5 @@
+-import test from 'ava';
+-import prettyBytes from '.';
++const test = require('tape');
++const prettyBytes = require('.');
+ 
+ test('throws on invalid input', t => {
+ 	t.throws(() => prettyBytes(''));
+@@ -9,6 +9,7 @@
+ 	t.throws(() => prettyBytes(Infinity));
+ 	t.throws(() => prettyBytes(-Infinity));
+ 	t.throws(() => prettyBytes(null));
++	t.end();
+ });
+ 
+ test('converts bytes to human readable strings', t => {
+@@ -22,6 +23,7 @@
+ 	t.is(prettyBytes(1001), '1 kB');
+ 	t.is(prettyBytes(1e16), '10 PB');
+ 	t.is(prettyBytes(1e30), '1000000 YB');
++	t.end();
+ });
+ 
+ test('supports negative number', t => {
+@@ -30,6 +32,7 @@
+ 	t.is(prettyBytes(-10.1), '-10.1 B');
+ 	t.is(prettyBytes(-999), '-999 B');
+ 	t.is(prettyBytes(-1001), '-1 kB');
++	t.end();
+ });
+ 
+ test('locale option', t => {
+@@ -72,12 +75,14 @@
+ 	} else {
+ 		t.pass();
+ 	}
++	t.end();
+ });
+ 
+ test('signed option', t => {
+ 	t.is(prettyBytes(42, {signed: true}), '+42 B');
+ 	t.is(prettyBytes(-13, {signed: true}), '-13 B');
+ 	t.is(prettyBytes(0, {signed: true}), ' 0 B');
++	t.end();
+ });
+ 
+ test('bits option', t => {
+@@ -91,6 +96,7 @@
+ 	t.is(prettyBytes(1001, {bits: true}), '1 kbit');
+ 	t.is(prettyBytes(1e16, {bits: true}), '10 Pbit');
+ 	t.is(prettyBytes(1e30, {bits: true}), '1000000 Ybit');
++	t.end();
+ });
+ 
+ test('binary option', t => {
+@@ -103,6 +109,7 @@
+ 	t.is(prettyBytes(1001, {binary: true}), '1000 B');
+ 	t.is(prettyBytes(1e16, {binary: true}), '8.88 PiB');
+ 	t.is(prettyBytes(1e30, {binary: true}), '827000 YiB');
++	t.end();
+ });
+ 
+ test('bits and binary option', t => {
+@@ -112,4 +119,5 @@
+ 	t.is(prettyBytes(999, {bits: true, binary: true}), '999 b');
+ 	t.is(prettyBytes(1025, {bits: true, binary: true}), '1 kibit');
+ 	t.is(prettyBytes(1e6, {bits: true, binary: true}), '977 kibit');
++	t.end();
+ });
