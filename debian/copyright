@@ -2,6 +2,7 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: pretty-bytes
 Upstream-Contact: https://github.com/sindresorhus/pretty-bytes/issues
 Source: https://github.com/sindresorhus/pretty-bytes#readme
+ https://registry.npmjs.org/@types/pretty-bytes
 
 Files: *
 Copyright: Sindre Sorhus <sindresorhus@gmail.com>
@@ -9,7 +10,11 @@ License: Expat
 
 Files: debian/*
 Copyright: 2017 Abhishek Kuvalekar <abhi.kuvalekar@yahoo.com>
- 2020 Xavier Guimard <yadd@debian.org>
+ 2020 Yadd <yadd@debian.org>
+License: Expat
+
+Files: types-*/*
+Copyright: Microsoft Corporation
 License: Expat
 
 License: Expat

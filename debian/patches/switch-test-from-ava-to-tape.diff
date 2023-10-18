@@ -1,7 +1,7 @@
 Description: Switch test from ava to tape
 Author: Xavier Guimard <yadd@debian.org>
 Forwarded: not-needed
-Last-Update: 2020-12-26
+Last-Update: 2021-12-15
 
 --- a/test.js
 +++ b/test.js
@@ -68,9 +68,17 @@ Last-Update: 2020-12-26
  });
  
  test('bits and binary option', t => {
-@@ -112,4 +119,5 @@
+@@ -112,6 +119,7 @@
  	t.is(prettyBytes(999, {bits: true, binary: true}), '999 b');
  	t.is(prettyBytes(1025, {bits: true, binary: true}), '1 kibit');
  	t.is(prettyBytes(1e6, {bits: true, binary: true}), '977 kibit');
++	t.end();
+ });
+ 
+ test('fractional digits options', t => {
+@@ -128,4 +136,5 @@
+ 	t.is(prettyBytes(18717, {maximumFractionDigits: 4, binary: true}), '18.2783 kiB');
+ 	t.is(prettyBytes(32768, {minimumFractionDigits: 2, maximumFractionDigits: 3, binary: true}), '32.00 kiB');
+ 	t.is(prettyBytes(65536, {minimumFractionDigits: 1, maximumFractionDigits: 3, binary: true}), '64.0 kiB');
 +	t.end();
  });

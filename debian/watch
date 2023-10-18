@@ -1,5 +1,10 @@
 version=4
 opts=\
 dversionmangle=auto,\
-filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-pretty-bytes-$1.tar.gz/ \
- https://github.com/sindresorhus/pretty-bytes/tags .*/archive/v?([\d\.]+).tar.gz
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-pretty-bytes-$1/ \
+ https://github.com/sindresorhus/pretty-bytes/tags .*/archive/.*/v?([\d\.]+).tar.gz group
+
+# It is not recommended use npmregistry. Please investigate more.
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,component=types-pretty-bytes,ctype=nodejs,pgpmode=none,filenamemangle=s/^.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-types-pretty-bytes-$1/" \
+ https://registry.npmjs.org/@types/pretty-bytes https://registry.npmjs.org/@types/pretty-bytes/-/pretty-bytes-([\d\.]+)@ARCHIVE_EXT@ group
