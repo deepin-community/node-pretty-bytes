@@ -1,3 +1,15 @@
+node-pretty-bytes (5.6.0+~5.2.0-1) unstable; urgency=medium
+
+  * Team upload
+  * Fix GitHub tags regex
+  * Update standards version to 4.6.0, no changes needed.
+  * Fix filenamemangle
+  * Embed typescript declarations
+  * New upstream version 5.6.0+~5.2.0
+  * Refresh patch
+
+ -- Yadd <yadd@debian.org>  Wed, 15 Dec 2021 14:54:34 +0100
+
 node-pretty-bytes (5.5.0-1) unstable; urgency=medium
 
   * Team upload
